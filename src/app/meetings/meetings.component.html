@@ -1,0 +1,26 @@
+<div class="container">
+  <br/>
+  <h1>Nos séminaires</h1>
+  <section class="py-5">
+    <div class="seminaire" *ngFor="let seminaire of data.seminaires;index as seminaieID">
+
+      <div class="recap">
+        <h2>{{seminaire.date}}</h2>
+        <h3  class="text-muted">{{seminaire.title}}</h3>
+      </div>
+
+      <div>
+        <button class=" show-more" data-toggle="collapse" [attr.data-target]="'#collapse-'+seminaieID">
+          VOIR PLUS<i class="fa-solid fa-angles-down float-right"></i>
+        </button>
+        <ul class="timeline collapse" [id]="'collapse-'+seminaieID">
+          <li class="timeline-item mb-2"  *ngFor="let event of seminaire.timeline">
+            <h5 class="fw-bold">{{event.heure}}</h5>
+            <p class="text-muted mb-2 fw-bold">{{event.desc}}</p>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
